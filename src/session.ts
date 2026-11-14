@@ -4,8 +4,8 @@ export interface Session {
   token: string;
 }
 
-/** The signed-in session. */
-export function getSession(): Session {
+/** The signed-in session, or null when there is none (never signed in, or expired). */
+export function getSession(): Session | null {
   return JSON.parse(localStorage.getItem(KEY) ?? "null");
 }
 
